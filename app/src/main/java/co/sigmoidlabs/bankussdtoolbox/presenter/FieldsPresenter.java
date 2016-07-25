@@ -10,5 +10,5 @@ import co.sigmoidlabs.bankussdtoolbox.model.data.Field;
 
 public interface FieldsPresenter {
 
-    <T> void onGenerateUSSDCode(List<Field.Value> values);
+    void generateUSSDCode(List<Field.Value> values);
 }

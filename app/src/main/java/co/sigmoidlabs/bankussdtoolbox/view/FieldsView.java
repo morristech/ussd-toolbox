@@ -11,5 +11,11 @@ import co.sigmoidlabs.bankussdtoolbox.model.data.Field;
 public interface FieldsView {
 
 
+    void showField(Field field);
+
     void showFields(List<Field> fields);
+
+    void hideField(Field field);
+
+    void hideFields(List<Field> field);
 }
