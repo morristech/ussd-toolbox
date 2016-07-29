@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "55379457921",
+    "firebase_url": "https://bank-ussd-toolbox.firebaseio.com",
+    "project_id": "bank-ussd-toolbox",
+    "storage_bucket": "bank-ussd-toolbox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55379457921:android:35a1b6439d9f105b",
+        "android_client_info": {
+          "package_name": "co.sigmoidlabs.bankussdtoolbox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55379457921-s5puu092qios5h2rd9hq9g3mm45lkk6n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.sigmoidlabs.bankussdtoolbox",
+            "certificate_hash": "94D945FBA355C7AE6E0E8EDE3F01591233C0CE07"
+          }
+        },
+        {
+          "client_id": "55379457921-g8bmlec5rv8ih7j5n6kdbv4431kalkqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx77G7yrc0jjH2YeNLXifnHOE_9IVB-uk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55379457921-g8bmlec5rv8ih7j5n6kdbv4431kalkqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
