@@ -1,4 +1,4 @@
-package co.sigmoidlabs.bankussdtoolbox.model;
+package co.sigmoidlabs.bankussdtoolbox.data;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -7,13 +7,13 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by Efe on 24/07/2016.
  */
 
-public class DataManager {
+public class BanksRepository {
 
     public static final String BANKS = "banks";
 
     private static DatabaseReference banks;
 
-    DataManager() {
+    BanksRepository() {
 
         banks = FirebaseDatabase.getInstance().getReference(BANKS);
     }
