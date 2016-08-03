@@ -13,7 +13,7 @@ public class BanksRepository {
 
     private static DatabaseReference banks;
 
-    BanksRepository() {
+    public BanksRepository() {
 
         banks = FirebaseDatabase.getInstance().getReference(BANKS);
     }

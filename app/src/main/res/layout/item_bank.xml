@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <co.sigmoidlabs.bankussdtoolbox.widget.ForegroundLinearLayout
+        android:id="@+id/bank_item_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:foreground="?attr/selectableItemBackground">
+
+        <co.sigmoidlabs.bankussdtoolbox.widget.SquareImageView
+            android:id="@+id/image_bank_logo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/text_bank_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
+
+    </co.sigmoidlabs.bankussdtoolbox.widget.ForegroundLinearLayout>
+</layout>
