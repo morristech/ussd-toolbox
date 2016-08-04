@@ -1,4 +1,4 @@
-package co.sigmoidlabs.bankussdtoolbox.selectbanks;
+package co.sigmoidlabs.bankussdtoolbox.ui.selectbanks;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
