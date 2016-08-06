@@ -12,7 +12,7 @@ import java.util.List;
 import co.sigmoidlabs.bankussdtoolbox.R;
 import co.sigmoidlabs.bankussdtoolbox.base.BaseActivity;
 import co.sigmoidlabs.bankussdtoolbox.data.BanksRepository;
-import co.sigmoidlabs.bankussdtoolbox.data.models.Bank;
+import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
 import co.sigmoidlabs.bankussdtoolbox.databinding.ActivitySelectBanksBinding;
 import co.sigmoidlabs.bankussdtoolbox.widget.decoration.SpaceItemDecoration;
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import co.sigmoidlabs.bankussdtoolbox.base.BasePresenter;
 import co.sigmoidlabs.bankussdtoolbox.base.BaseView;
-import co.sigmoidlabs.bankussdtoolbox.data.models.Bank;
+import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
 
 /**
  * Created by moyinoluwa on 7/30/16.

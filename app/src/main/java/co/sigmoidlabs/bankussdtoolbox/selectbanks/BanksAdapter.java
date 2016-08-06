@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import co.sigmoidlabs.bankussdtoolbox.R;
-import co.sigmoidlabs.bankussdtoolbox.data.models.Bank;
+import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
 import co.sigmoidlabs.bankussdtoolbox.databinding.ItemBankBinding;
 
 /**
@@ -58,12 +58,6 @@ public class BanksAdapter extends RecyclerView.Adapter<BankViewHolder> {
         final Bank bank = getItem(position);
         if (bank != null) {
             // TODO: 03/08/2016 load bank logo & set bank name
-            Glide.with(mContext)
-                    .load(bank.bankLogo)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(holder.binding.imageBankLogo);
-
-            holder.binding.textBankName.setText(bank.bankName);
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
