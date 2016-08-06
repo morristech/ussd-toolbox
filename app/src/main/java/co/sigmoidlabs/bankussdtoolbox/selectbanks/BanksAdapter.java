@@ -3,10 +3,15 @@ package co.sigmoidlabs.bankussdtoolbox.selectbanks;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.Outline;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
+import android.view.ViewTreeObserver;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -27,6 +32,9 @@ public class BanksAdapter extends RecyclerView.Adapter<BankViewHolder> {
     private LayoutInflater mInflater;
     private ItemClickListener mItemClickListener;
 
+    private int mTileSize;
+    private float mTileCornerRadius;
+
     public interface ItemClickListener {
         void onItemClick(int position, Bank bank);
     }
@@ -35,6 +43,7 @@ public class BanksAdapter extends RecyclerView.Adapter<BankViewHolder> {
         this.mContext = context;
         this.mBanks = banks;
         this.mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mTileCornerRadius = mContext.getResources().getDimension(R.dimen.bank_item_curve);
     }
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -48,8 +57,24 @@ public class BanksAdapter extends RecyclerView.Adapter<BankViewHolder> {
 
     @Override
     public BankViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ItemBankBinding binding = DataBindingUtil.inflate(mInflater, R.layout.item_bank, parent,
+        final ItemBankBinding binding = DataBindingUtil.inflate(mInflater, R.layout.item_bank, parent,
                 false);
+        final BankViewHolder holder = new BankViewHolder(binding);
+        holder.itemView.getViewTreeObserver().addOnGlobalLayoutListener(
+                new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        mTileSize = binding.bankBackground.getWidth();
+                        holder.itemView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        holder.itemView.setOutlineProvider(new ViewOutlineProvider() {
+                            @Override
+                            public void getOutline(View view, Outline outline) {
+                                outline.setRoundRect(0, 0, mTileSize, mTileSize, mTileCornerRadius);
+                                holder.itemView.setClipToOutline(true);
+                            }
+                        });
+                    }
+                });
         return new BankViewHolder(binding);
     }
 
@@ -57,7 +82,9 @@ public class BanksAdapter extends RecyclerView.Adapter<BankViewHolder> {
     public void onBindViewHolder(BankViewHolder holder, final int position) {
         final Bank bank = getItem(position);
         if (bank != null) {
-            // TODO: 03/08/2016 load bank logo & set bank name
+
+            holder.binding.textBankName.setText(bank.getName());
+            holder.binding.bankBackground.setBackgroundColor(bank.getColor());
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

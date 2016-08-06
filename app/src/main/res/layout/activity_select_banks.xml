@@ -9,6 +9,7 @@
         tools:context=".selectbanks.SelectBanksActivity">
 
         <include
+            android:id="@+id/toolbar"
             layout="@layout/toolbar" />
 
         <FrameLayout
