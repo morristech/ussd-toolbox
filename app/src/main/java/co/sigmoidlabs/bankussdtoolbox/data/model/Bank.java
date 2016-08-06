@@ -19,6 +19,50 @@ public class Bank implements Parcelable{
 
     List<Action> actions;
 
+    public Bank() {
+
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
+    public int getAccentColor() {
+        return accentColor;
+    }
+
+    public void setAccentColor(int accentColor) {
+        this.accentColor = accentColor;
+    }
+
+    public List<Action> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<Action> actions) {
+        this.actions = actions;
+    }
+
     protected Bank(Parcel in) {
         key = in.readString();
         name = in.readString();
