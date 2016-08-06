@@ -1,4 +1,4 @@
-package co.sigmoidlabs.bankussdtoolbox.selectbanks;
+package co.sigmoidlabs.bankussdtoolbox.ui.selectbanks;
 
 
 import android.databinding.DataBindingUtil;

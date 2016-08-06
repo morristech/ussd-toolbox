@@ -1,20 +1,15 @@
-package co.sigmoidlabs.bankussdtoolbox.selectbanks;
+package co.sigmoidlabs.bankussdtoolbox.ui.selectbanks;
 
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.graphics.Outline;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
