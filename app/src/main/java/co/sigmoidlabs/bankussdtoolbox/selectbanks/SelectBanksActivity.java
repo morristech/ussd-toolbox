@@ -29,6 +29,7 @@ public class SelectBanksActivity extends BaseActivity implements SelectBanksCont
 
     private ArrayList<Bank> mBanks;
     private float mGridSpacing;
+    private int mColumnCount = COLUMN_COUNT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class SelectBanksActivity extends BaseActivity implements SelectBanksCont
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_select_banks);
 
         mGridSpacing = getResources().getDimension(R.dimen.grid_spacing);
+        mColumnCount = getResources().getInteger(R.integer.grid_column);
 
         mBankRepository = new BanksRepository();
         mPresenter = new SelectBanksPresenter(this, mBankRepository);
@@ -46,6 +48,7 @@ public class SelectBanksActivity extends BaseActivity implements SelectBanksCont
             mBanks = savedInstanceState.getParcelableArrayList(BUNDLE_BANKS);
         }
 
+        mBinding.toolbar.toolbar.setTitle(R.string.title_select_bank);
         mAdapter = new BanksAdapter(this, mBanks);
         mPresenter.loadBanks();
     }
@@ -76,9 +79,9 @@ public class SelectBanksActivity extends BaseActivity implements SelectBanksCont
         mBanks = new ArrayList<>(bankList);
         mAdapter.setItems(bankList);
         mBinding.recyclerView.setAdapter(mAdapter);
-        mBinding.recyclerView.setLayoutManager(new GridLayoutManager(this, COLUMN_COUNT));
+        mBinding.recyclerView.setLayoutManager(new GridLayoutManager(this, mColumnCount));
         mBinding.recyclerView.addItemDecoration(
-                new SpaceItemDecoration(COLUMN_COUNT, (int) mGridSpacing, true));
+                new SpaceItemDecoration(mColumnCount, (int) mGridSpacing, true));
         mAdapter.setItemClickListener(this);
     }
 
