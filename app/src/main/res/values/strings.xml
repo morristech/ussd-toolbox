@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bank USSD Toolbox</string>
+
+    <string name="title_select_bank">Select your bank</string>
 </resources>

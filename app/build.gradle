@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
+    dataBinding.enabled = true
 
     defaultConfig {
         applicationId "co.sigmoidlabs.bankussdtoolbox"
@@ -33,6 +34,7 @@ dependencies {
     compile "com.google.firebase:firebase-database:$rootProject.firebaseVersion"
     compile "com.google.firebase:firebase-crash:$rootProject.firebaseVersion"
     compile "com.android.support.test.espresso:espresso-idling-resource:$rootProject.ext.espressoVersion"
+    compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
     // Dependencies for local unit tests
     testCompile "junit:junit:$rootProject.junitVersion"

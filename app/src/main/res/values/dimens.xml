@@ -2,4 +2,14 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- touch raise height -->
+    <dimen name="touch_raise">8dp</dimen>
+
+    <!-- dimensions for bank list item -->
+    <dimen name="bank_item_curve">8dp</dimen>
+
+    <!-- grid spacing -->
+    <dimen name="grid_spacing">8dp</dimen>
+    <dimen name="text_bank_name">18sp</dimen>
 </resources>
