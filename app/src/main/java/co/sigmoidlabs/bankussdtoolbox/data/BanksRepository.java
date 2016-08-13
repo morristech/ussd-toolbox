@@ -9,7 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class BanksRepository {
 
-    public static final String BANKS = "banks";
+    private static final String BANKS = "banks";
 
     private static DatabaseReference banks;
 

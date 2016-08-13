@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="action"
+            type="co.sigmoidlabs.bankussdtoolbox.data.model.Action" />
+    </data>
+
+    <TextView
+
+        android:background="?attr/selectableItemBackground"
+        android:drawableLeft="@drawable/tint_circle"
+        android:drawablePadding="28dp"
+
+        android:text="@{ action.name }"
+        tools:text="Transfer Money"
+
+        android:drawableRight="@{ action.fields != null ? @drawable/ic_chevron : null }"
+        tools:drawableRight="@drawable/ic_chevron"
+
+        android:textSize="16sp"
+        android:textAllCaps="true"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="72dp" />
+
+</layout>
