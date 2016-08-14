@@ -94,4 +94,49 @@ public class Bank implements Parcelable{
         parcel.writeInt(color);
         parcel.writeInt(accentColor);
     }
+
+    public static class Builder {
+
+        public Builder(String key) {
+            this.key = key;
+        }
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setColor(@ColorInt int color) {
+            this.color = color;
+            return this;
+        }
+
+        public Builder setAccent(@ColorInt int accentColor) {
+            this.accentColor = accentColor;
+            return this;
+        }
+
+        public Builder addAction(Action action) {
+            this.actions.add(action);
+            return this;
+        }
+
+        public Bank build() {
+            Bank bank = new Bank();
+            bank.key = key;
+            bank.name = name;
+            bank.color = color;
+            bank.accentColor = accentColor;
+            bank.actions = actions;
+
+            return bank;
+        }
+
+        String key;
+        String name;
+        @ColorInt int color;
+        @ColorInt int accentColor;
+
+        List<Action> actions;
+    }
 }
