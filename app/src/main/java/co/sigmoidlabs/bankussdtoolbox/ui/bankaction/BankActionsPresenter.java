@@ -2,6 +2,7 @@ package co.sigmoidlabs.bankussdtoolbox.ui.bankaction;
 
 import java.util.List;
 
+import co.sigmoidlabs.bankussdtoolbox.data.BanksRepository;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Action;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
 
@@ -10,17 +11,22 @@ import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
  */
 public class BankActionsPresenter implements BankActionContract.Presenter {
 
-    private final Bank bank;
-    private final BankActionContract.View actionsList;
+    private Bank bank;
+    private BanksRepository repo;
+    private BankActionContract.View actionsList;
 
     public BankActionsPresenter(Bank bank, BankActionContract.View actionsList) {
         this.bank = bank;
         this.actionsList = actionsList;
+
+        repo = new BanksRepository();
     }
 
     @Override
     public void loadActions() {
         actionsList.showLoading(true);
+
+        if (bank == null) bank = repo.getTestBank();
 
         List<Action> actions = bank.getActions();
         actionsList.showActions(actions);

@@ -14,7 +14,6 @@ public class Action implements Parcelable {
 
     String key;
     String name;
-
     List<Template> templates;
     List<Field> fields;
 
@@ -54,4 +53,28 @@ public class Action implements Parcelable {
             return new Action[size];
         }
     };
+
+    public static class Builder extends Action {
+
+        String key;
+        String name;
+
+        public Builder(String key) {
+
+            this.key = key;
+        }
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Action build() {
+            Action action = new Action();
+            action.key = key;
+            action.name = name;
+
+            return action;
+        }
+    }
 }
