@@ -5,49 +5,66 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="co.sigmoidlabs.bankussdtoolbox.util.ColorUtils" />
+
         <variable
             name="bank"
             type="co.sigmoidlabs.bankussdtoolbox.data.model.Bank" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
+        android:fitsSystemWindows="true"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:listitem="@layout/item_action"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <android.support.design.widget.AppBarLayout
+            android:fitsSystemWindows="true"
             android:stateListAnimator="@animator/appbar_always_elevated"
+
+            android:background="@{ bank.color }"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:targetApi="lollipop">
 
             <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/toolbar"
-                app:collapsedTitleTextAppearance="@style/TextAppearance.Toolbar.Title.Collapsed"
+                android:id="@+id/collapser"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                app:titleEnabled="true"
+
+                app:statusBarScrim="@{ bank.color}"
+                app:title="@{ bank.name }"
+
+                app:collapsedTitleTextAppearance="@style/TextAppearance.Toolbar.Title"
                 app:expandedTitleTextAppearance="@style/TextAppearance.Toolbar.Title.Expanded"
                 app:expandedTitleMarginStart="72dp"
                 app:expandedTitleMarginEnd="56dp"
                 app:expandedTitleMarginBottom="32dp"
-                app:layout_scrollFlags="scroll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="168dp" />
+
                 <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
                     app:layout_collapseMode="pin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="?attr/actionBarSize" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
         </android.support.design.widget.AppBarLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/content"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_action"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable name="color" type="int" />
+        <variable name="label" type="String" />
+        <variable name="ussdCode" type="String" />
+    </data>
+
+    <LinearLayout
+        android:padding="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            tools:text="Transfer Money"
+            android:text="@{ label }"
+            android:textSize="16sp"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <TextView
+            tools:text="*737*6#"
+            android:text="@{ ussdCode }"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@{ color }"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <LinearLayout
+            style="@style/Widget.AppCompat.ButtonBar.AlertDialog"
+            android:gravity="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="@string/copy"
+                style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                android:textColor="@{ color }"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:text="@string/call"
+                style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                android:textColor="@{ color }"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

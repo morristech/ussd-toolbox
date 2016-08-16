@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -19,8 +20,10 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     public DividerItemDecoration(Context context) {
 
+        int dividerColor = ContextCompat.getColor(context, R.color.divider);
+        divider = new ColorDrawable(dividerColor);
+
         oneDp = context.getResources().getDimension(R.dimen.action_divider_height);
-        divider = new ColorDrawable();
     }
 
     @Override

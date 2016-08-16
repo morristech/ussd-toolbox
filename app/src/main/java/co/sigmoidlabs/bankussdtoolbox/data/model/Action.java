@@ -1,8 +1,5 @@
 package co.sigmoidlabs.bankussdtoolbox.data.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,57 +7,40 @@ import java.util.List;
  * Created by Efe on 04/08/2016.
  */
 
-public class Action implements Parcelable {
+public class Action {
 
     String key;
     String name;
-    List<Template> templates;
     List<Field> fields;
+    List<Template> templates;
 
     public Action() {
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getKey() {
+        return key;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.key);
-        dest.writeString(this.name);
-        dest.writeList(this.templates);
-        dest.writeList(this.fields);
+    public String getName() {
+        return name;
     }
 
-    protected Action(Parcel in) {
-        this.key = in.readString();
-        this.name = in.readString();
-        this.templates = new ArrayList<Template>();
-        in.readList(this.templates, Template.class.getClassLoader());
-        this.fields = new ArrayList<Field>();
-        in.readList(this.fields, Field.class.getClassLoader());
+    public List<Field> getFields() {
+        return fields;
     }
 
-    public static final Creator<Action> CREATOR = new Creator<Action>() {
-        @Override
-        public Action createFromParcel(Parcel source) {
-            return new Action(source);
-        }
+    public List<Template> getTemplates() {
+        return templates;
+    }
 
-        @Override
-        public Action[] newArray(int size) {
-            return new Action[size];
-        }
-    };
-
-    public static class Builder extends Action {
+    public static class Builder {
 
         String key;
         String name;
+        List<Field> fields;
+        List<Template> templates;
 
         public Builder(String key) {
-
             this.key = key;
         }
 
@@ -69,10 +49,24 @@ public class Action implements Parcelable {
             return this;
         }
 
+        public Builder addField(Field field) {
+            if (fields == null) fields = new ArrayList<>();
+            fields.add(field);
+            return this;
+        }
+
+        public Builder addTemplate(Template template) {
+            if (templates == null) templates = new ArrayList<>();
+            templates.add(template);
+            return this;
+        }
+
         public Action build() {
             Action action = new Action();
             action.key = key;
             action.name = name;
+            action.fields = fields;
+            action.templates = templates;
 
             return action;
         }

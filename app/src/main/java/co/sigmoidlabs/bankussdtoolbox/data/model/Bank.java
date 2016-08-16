@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,12 +13,12 @@ import java.util.List;
 
 public class Bank implements Parcelable{
 
-    String key;
-    String name;
-    @ColorInt int color;
-    @ColorInt int accentColor;
+    private String key;
+    private String name;
+    private @ColorInt int color;
+    private @ColorInt int accentColor;
 
-    List<Action> actions;
+    private List<Action> actions;
 
     public Bank() {
 
@@ -97,6 +98,13 @@ public class Bank implements Parcelable{
 
     public static class Builder {
 
+        String key;
+        String name;
+        @ColorInt int color;
+        @ColorInt int accentColor;
+
+        List<Action> actions;
+
         public Builder(String key) {
             this.key = key;
         }
@@ -117,6 +125,7 @@ public class Bank implements Parcelable{
         }
 
         public Builder addAction(Action action) {
+            if (actions == null) actions = new ArrayList<>();
             this.actions.add(action);
             return this;
         }
@@ -131,12 +140,5 @@ public class Bank implements Parcelable{
 
             return bank;
         }
-
-        String key;
-        String name;
-        @ColorInt int color;
-        @ColorInt int accentColor;
-
-        List<Action> actions;
     }
 }

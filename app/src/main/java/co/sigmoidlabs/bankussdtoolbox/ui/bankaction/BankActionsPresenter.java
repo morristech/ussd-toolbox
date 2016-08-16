@@ -1,7 +1,6 @@
 package co.sigmoidlabs.bankussdtoolbox.ui.bankaction;
 
-import java.util.List;
-
+import co.sigmoidlabs.bankussdtoolbox.UssdCodeGenerator;
 import co.sigmoidlabs.bankussdtoolbox.data.BanksRepository;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Action;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
@@ -15,9 +14,9 @@ public class BankActionsPresenter implements BankActionContract.Presenter {
     private BanksRepository repo;
     private BankActionContract.View actionsList;
 
-    public BankActionsPresenter(Bank bank, BankActionContract.View actionsList) {
+    public BankActionsPresenter(Bank bank, BankActionContract.View view) {
         this.bank = bank;
-        this.actionsList = actionsList;
+        this.actionsList = view;
 
         repo = new BanksRepository();
     }
@@ -28,15 +27,23 @@ public class BankActionsPresenter implements BankActionContract.Presenter {
 
         if (bank == null) bank = repo.getTestBank();
 
-        List<Action> actions = bank.getActions();
-        actionsList.showActions(actions);
+        actionsList.showTitle(bank);
+        actionsList.showActions(bank.getActions());
 
         actionsList.showLoading(false);
     }
 
     @Override
-    public void selectAction(Action action) {
+    public void onActionSelected(Action action) {
 
-        actionsList.showActionFields(action);
+        if (action.getFields() == null || action.getFields().size() == 0) {
+
+            String ussd = UssdCodeGenerator.generate(action.getTemplates().get(0));
+            actionsList.showUssdCode(bank.getColor(), action.getName(), ussd);
+
+        } else {
+
+            actionsList.showActionFields(action);
+        }
     }
 }

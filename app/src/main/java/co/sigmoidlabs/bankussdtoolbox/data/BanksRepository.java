@@ -7,6 +7,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import co.sigmoidlabs.bankussdtoolbox.data.model.Action;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
+import co.sigmoidlabs.bankussdtoolbox.data.model.Field;
+import co.sigmoidlabs.bankussdtoolbox.data.model.Template;
 
 /**
  * Created by Efe on 24/07/2016.
@@ -25,12 +27,31 @@ public class BanksRepository {
 
     public Bank getTestBank() {
 
-        return new Bank.Builder("gtb")
+        Bank.Builder gtbBuilder = new Bank.Builder("gtb")
                 .setName("GTBank")
-                .setAccent(Color.parseColor("#E04D00"))
                 .setColor(Color.parseColor("#E04D00"))
-                .addAction(new Action.Builder("transfer").setName("Transfer Money").build())
+                .setAccent(Color.parseColor("#E04D00"));
+
+        Field amount = new Field.Builder("amount").setType(Field.TYPE_NUMBER).build();
+        Field accountNo = new Field.Builder("account").setType(Field.TYPE_NUMBER).build();
+
+        Action transfer = new Action.Builder("transferMoney")
+                .setName("Transfer Money")
+                .addField(amount)
+                .addField(accountNo)
+                .addTemplate(new Template.Builder("one").setValue("*737*{amount}#").build())
+                .addTemplate(new Template.Builder("two").setValue("*737*{amount}*{nuban}#").build())
+                .build();
+
+        Action balance = new Action.Builder("checkBalance")
+                .setName("Check Balance")
+                .addTemplate(new Template.Builder("one").setValue("*737*6#").build())
                 .build()
         ;
+
+        gtbBuilder.addAction(transfer);
+        gtbBuilder.addAction(balance);
+
+        return gtbBuilder.build();
     }
 }
