@@ -15,7 +15,7 @@ import co.sigmoidlabs.bankussdtoolbox.R;
  */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
-    private final float oneDp;
+    private final float height;
     private Drawable divider;
 
     public DividerItemDecoration(Context context) {
@@ -23,7 +23,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         int dividerColor = ContextCompat.getColor(context, R.color.divider);
         divider = new ColorDrawable(dividerColor);
 
-        oneDp = context.getResources().getDimension(R.dimen.action_divider_height);
+        height = context.getResources().getDimension(R.dimen.action_divider_height);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
             int top = child.getBottom() + params.bottomMargin;
 
-            divider.setBounds(left, top, right, (int) (top + oneDp));
+            divider.setBounds(left, top, right, (int) (top + height));
             divider.draw(c);
         }
     }
