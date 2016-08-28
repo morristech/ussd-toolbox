@@ -12,6 +12,7 @@
 
     <!-- grid spacing -->
     <dimen name="grid_spacing">8dp</dimen>
+    <dimen name="action_divider_height">2dp</dimen>
 
     <!-- text sizes -->
     <dimen name="text_bank_name">18sp</dimen>

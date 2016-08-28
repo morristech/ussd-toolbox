@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,12 +13,12 @@ import java.util.List;
 
 public class Bank implements Parcelable{
 
-    String key;
-    String name;
-    @ColorInt int color;
-    @ColorInt int accentColor;
+    private String key;
+    private String name;
+    private @ColorInt int color;
+    private @ColorInt int accentColor;
 
-    List<Action> actions;
+    private List<Action> actions;
 
     public Bank() {
 
@@ -93,5 +94,51 @@ public class Bank implements Parcelable{
         parcel.writeString(name);
         parcel.writeInt(color);
         parcel.writeInt(accentColor);
+    }
+
+    public static class Builder {
+
+        String key;
+        String name;
+        @ColorInt int color;
+        @ColorInt int accentColor;
+
+        List<Action> actions;
+
+        public Builder(String key) {
+            this.key = key;
+        }
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setColor(@ColorInt int color) {
+            this.color = color;
+            return this;
+        }
+
+        public Builder setAccent(@ColorInt int accentColor) {
+            this.accentColor = accentColor;
+            return this;
+        }
+
+        public Builder addAction(Action action) {
+            if (actions == null) actions = new ArrayList<>();
+            this.actions.add(action);
+            return this;
+        }
+
+        public Bank build() {
+            Bank bank = new Bank();
+            bank.key = key;
+            bank.name = name;
+            bank.color = color;
+            bank.accentColor = accentColor;
+            bank.actions = actions;
+
+            return bank;
+        }
     }
 }

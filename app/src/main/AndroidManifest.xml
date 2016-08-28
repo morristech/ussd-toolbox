@@ -10,13 +10,32 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.selectbanks.SelectBanksActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name=".ui.selectbanks.SelectBanksActivity"/>
+
+        <activity
+            android:theme="@style/AppTheme.FitsSystemWindows"
+            android:name=".ui.bankaction.BankActionActivity"
+            android:parentActivityName=".ui.selectbanks.SelectBanksActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.selectbanks.SelectBanksActivity"/>
+
         </activity>
+
+        <activity-alias
+            android:name=".Launcher"
+            android:label="@string/app_name"
+            android:targetActivity=".ui.selectbanks.SelectBanksActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+
     </application>
 
 </manifest>

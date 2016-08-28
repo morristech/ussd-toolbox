@@ -2,12 +2,34 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:colorBackground">@color/background</item>
+
+    </style>
+
+    <style name="AppTheme.FitsSystemWindows">
+
+    </style>
+
+    <style name="AppTheme.FitsSystemWindows.TransparentStatus">
+
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+
+    <style name="TextAppearance.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+
+    </style>
+
+    <style name="TextAppearance.Toolbar.Title.Collapsed">
+
+    </style>
+
+    <style name="TextAppearance.Toolbar.Title.Expanded" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
+
+    </style>
 
 </resources>

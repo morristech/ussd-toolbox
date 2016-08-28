@@ -20,8 +20,9 @@ import co.sigmoidlabs.bankussdtoolbox.ui.selectbanks.adapter.SectionItem;
 import co.sigmoidlabs.bankussdtoolbox.widget.decoration.SectionItemDecoration;
 import co.sigmoidlabs.bankussdtoolbox.widget.decoration.SpaceItemDecoration;
 
-public class SelectBanksActivity extends BaseActivity implements SelectBanksContract.View,
-        BanksAdapter.ItemClickListener {
+public class SelectBanksActivity extends BaseActivity implements
+        SelectBanksContract.View, BanksAdapter.ItemClickListener {
+
     private static final String BUNDLE_BANKS = "bundle_banks";
     private static final int COLUMN_COUNT = 3;
 
@@ -116,6 +117,11 @@ public class SelectBanksActivity extends BaseActivity implements SelectBanksCont
     @Override
     public void setPresenter(SelectBanksContract.Presenter presenter) {
         mPresenter = (SelectBanksPresenter) presenter;
+    }
+
+    @Override
+    public void showUssdCode(int color, String action, String ussdCode) {
+
     }
 
     @Override

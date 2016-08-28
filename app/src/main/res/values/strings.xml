@@ -2,4 +2,7 @@
     <string name="app_name">Bank USSD Toolbox</string>
 
     <string name="title_select_bank">Select your bank</string>
+
+    <string name="copy">Copy</string>
+    <string name="call">Call</string>
 </resources>
