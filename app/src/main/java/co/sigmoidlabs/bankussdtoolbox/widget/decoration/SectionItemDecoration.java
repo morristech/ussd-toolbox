@@ -1,11 +1,9 @@
 package co.sigmoidlabs.bankussdtoolbox.widget.decoration;
 
 import android.graphics.Rect;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
 import co.sigmoidlabs.bankussdtoolbox.ui.selectbanks.adapter.BankViewHolder;
 import co.sigmoidlabs.bankussdtoolbox.ui.selectbanks.adapter.BanksAdapter;
 
@@ -14,9 +12,6 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
     private int spanCount;
     private int spacing;
     private boolean includeEdge;
-
-    private static final int SECTION_FAV_BANKS = 1;
-    private static final int SECTION_ALL_BANKS = 2;
 
     public SectionItemDecoration(int spanCount, int spacing, boolean includeEdge) {
         this.spanCount = spanCount;
@@ -41,7 +36,7 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
                     pos = pos - 1;
                 } else if (hasFavouriteBanks && hasAllBanks &&
                         position > banksAdapter.getFavouriteBanksCount()) {
-                    pos = pos - 2;
+                    pos = pos - 2 - banksAdapter.getFavouriteBanksCount();
                 } else if (!hasFavouriteBanks && hasAllBanks) {
                     pos = pos - 1;
                 }
