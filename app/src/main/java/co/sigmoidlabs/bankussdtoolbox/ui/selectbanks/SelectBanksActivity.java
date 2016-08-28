@@ -15,6 +15,7 @@ import co.sigmoidlabs.bankussdtoolbox.base.BaseActivity;
 import co.sigmoidlabs.bankussdtoolbox.data.BanksRepository;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
 import co.sigmoidlabs.bankussdtoolbox.databinding.ActivitySelectBanksBinding;
+import co.sigmoidlabs.bankussdtoolbox.ui.bankaction.BankActionActivity;
 import co.sigmoidlabs.bankussdtoolbox.ui.selectbanks.adapter.BanksAdapter;
 import co.sigmoidlabs.bankussdtoolbox.ui.selectbanks.adapter.SectionItem;
 import co.sigmoidlabs.bankussdtoolbox.widget.decoration.SectionItemDecoration;
@@ -82,8 +83,8 @@ public class SelectBanksActivity extends BaseActivity implements
     @Override
     public void showBanks(List<Bank> bankList) {
         mBanks = new ArrayList<>(bankList);
-        mAdapter.setAllBanks(bankList);
-        mAdapter.setFavouriteBanks(bankList.subList(0,2));
+        mAdapter.setAllBanks(mBanks);
+        mAdapter.setFavouriteBanks(mBanks.subList(0, mBanks.size()/2));
         mBinding.recyclerView.setAdapter(mAdapter);
         final GridLayoutManager gridLayoutManager = new GridLayoutManager(this, mColumnCount);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -111,7 +112,7 @@ public class SelectBanksActivity extends BaseActivity implements
 
     @Override
     public void showBankActions(Bank bank) {
-        // TODO: 04/08/2016 start the bank action activity
+        startActivity(BankActionActivity.createLaunchIntent(this, bank));
     }
 
     @Override

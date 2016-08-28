@@ -74,8 +74,6 @@ public class BanksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemViewType(int position) {
-        // if position == 0 && hasFavouriteBanks()
-        // else if position == 0 && has
         if (position == 0) {
             return R.layout.item_section_header;
         } else if (position == mFavouriteBanks.size() + 1 && hasFavouriteBanks()) {
@@ -230,7 +228,7 @@ public class BanksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
     }
 
-    public Bank getBankItem(int position) {
+    private Bank getBankItem(int position) {
         if (hasFavouriteBanks() && position >= 0 && position <= mFavouriteBanks.size()) {
             return mFavouriteBanks.get(position - 1);
         } else if (hasFavouriteBanks() && hasAllBanks() && position >= mFavouriteBanks.size() + 1
@@ -243,8 +241,7 @@ public class BanksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return null;
     }
 
-    public SectionItem getSectionItem(int position) {
-        String title = "";
+    private SectionItem getSectionItem(int position) {
         if (hasFavouriteBanks() && position == 0) {
             return new SectionItem("Favourite Banks");
         } else if (!hasFavouriteBanks() && hasAllBanks() && position == 0) {
@@ -252,11 +249,6 @@ public class BanksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         } else if (hasFavouriteBanks() && hasAllBanks() && position == mFavouriteBanks.size() + 1) {
             return new SectionItem("All Banks");
         }
-//        if ((hasFavouriteBanks() || hasAllBanks()) && position == 0) {
-//            return new SectionItem("Favourite Banks");
-//        } else if (hasFavouriteBanks() && hasAllBanks() && position == mFavouriteBanks.size() + 1) {
-//            return new SectionItem("All Banks");
-//        }
         return null;
     }
 
