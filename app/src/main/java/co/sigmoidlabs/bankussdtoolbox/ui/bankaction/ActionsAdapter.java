@@ -4,6 +4,7 @@ package co.sigmoidlabs.bankussdtoolbox.ui.bankaction;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,7 @@ class ActionsAdapter extends RecyclerView.Adapter<ActionsAdapter.ActionViewHolde
         notifyDataSetChanged();
     }
 
-    public void setItems(List<Action> actions) {
+    public void setItems(@NonNull List<Action> actions) {
         mActions = actions;
         notifyDataSetChanged();
     }
@@ -91,14 +92,7 @@ class ActionsAdapter extends RecyclerView.Adapter<ActionsAdapter.ActionViewHolde
             root.setCompoundDrawables(tintedLeft, drawables[1], drawables[2], drawables[3]);
 
             this.binding = binding;
-            this.binding.executePendingBindings();
-        }
-
-        void bind(Action action) {
-
-            binding.setAction(action);
-
-            binding.getRoot().setOnClickListener(new View.OnClickListener() {
+            this.binding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -109,8 +103,12 @@ class ActionsAdapter extends RecyclerView.Adapter<ActionsAdapter.ActionViewHolde
                     }
                 }
             });
+            this.binding.executePendingBindings();
+        }
 
-            binding.executePendingBindings();
+        void bind(Action action) {
+            this.binding.setAction(action);
+            this.binding.executePendingBindings();
         }
     }
 }

@@ -87,6 +87,7 @@ public class BankActionActivity extends AppCompatActivity
         mBinding.setBank(bank);
         mAdapter.setBankColor(bank.getColor());
 
+        // Use 87% black for a light shade color else use full white
         int tint = ColorUtils.isDark(bank.getColor()) ? 0xFFFFFFFF : 0xDE000000;
 
         mBinding.collapser.setExpandedTitleColor(tint);

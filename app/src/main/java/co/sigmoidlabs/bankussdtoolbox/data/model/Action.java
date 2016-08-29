@@ -1,5 +1,7 @@
 package co.sigmoidlabs.bankussdtoolbox.data.model;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,9 +51,19 @@ public class Action {
             return this;
         }
 
+        public Builder setFields(@NonNull List<Field> fields) {
+            this.fields = fields;
+            return this;
+        }
+
         public Builder addField(Field field) {
             if (fields == null) fields = new ArrayList<>();
             fields.add(field);
+            return this;
+        }
+
+        public Builder setTemplates(List<Template> templates) {
+            this.templates = templates;
             return this;
         }
 

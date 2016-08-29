@@ -3,6 +3,7 @@ package co.sigmoidlabs.bankussdtoolbox.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,6 +122,11 @@ public class Bank implements Parcelable{
 
         public Builder setAccent(@ColorInt int accentColor) {
             this.accentColor = accentColor;
+            return this;
+        }
+
+        public Builder setActions(@NonNull List<Action> actions) {
+            this.actions = actions;
             return this;
         }
 

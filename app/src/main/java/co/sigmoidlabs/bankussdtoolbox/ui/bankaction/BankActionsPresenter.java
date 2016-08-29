@@ -1,5 +1,7 @@
 package co.sigmoidlabs.bankussdtoolbox.ui.bankaction;
 
+import java.util.List;
+
 import co.sigmoidlabs.bankussdtoolbox.UssdCodeGenerator;
 import co.sigmoidlabs.bankussdtoolbox.data.BanksRepository;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Action;
@@ -25,10 +27,14 @@ public class BankActionsPresenter implements BankActionContract.Presenter {
     public void loadActions() {
         actionsList.showLoading(true);
 
+        // TODO: 29/08/2016 remove test methods
         if (bank == null) bank = repo.getTestBank();
-
         actionsList.showTitle(bank);
-        actionsList.showActions(bank.getActions());
+
+        // TODO: 29/08/2016 remove test methods
+        List<Action> actions = bank.getActions();
+        if (actions == null) actions = repo.getTestActions();
+        actionsList.showActions(actions);
 
         actionsList.showLoading(false);
     }
