@@ -4,6 +4,7 @@ package co.sigmoidlabs.bankussdtoolbox.ui.selectbanks;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -14,6 +15,10 @@ import co.sigmoidlabs.bankussdtoolbox.base.BaseActivity;
 import co.sigmoidlabs.bankussdtoolbox.data.BanksRepository;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
 import co.sigmoidlabs.bankussdtoolbox.databinding.ActivitySelectBanksBinding;
+import co.sigmoidlabs.bankussdtoolbox.ui.bankaction.BankActionActivity;
+import co.sigmoidlabs.bankussdtoolbox.ui.selectbanks.adapter.BanksAdapter;
+import co.sigmoidlabs.bankussdtoolbox.ui.selectbanks.adapter.SectionItem;
+import co.sigmoidlabs.bankussdtoolbox.widget.decoration.SectionItemDecoration;
 import co.sigmoidlabs.bankussdtoolbox.widget.decoration.SpaceItemDecoration;
 
 public class SelectBanksActivity extends BaseActivity implements
@@ -50,7 +55,7 @@ public class SelectBanksActivity extends BaseActivity implements
         }
 
         mBinding.toolbar.toolbar.setTitle(R.string.title_select_bank);
-        mAdapter = new BanksAdapter(this, mBanks);
+        mAdapter = new BanksAdapter(this, null, mBanks);
         mPresenter.loadBanks();
     }
 
@@ -72,23 +77,42 @@ public class SelectBanksActivity extends BaseActivity implements
 
     @Override
     public void showError(String message) {
-
+        // TODO: 13/08/2016 implement showing error with a refresh button
     }
 
     @Override
     public void showBanks(List<Bank> bankList) {
         mBanks = new ArrayList<>(bankList);
-        mAdapter.setItems(bankList);
+        mAdapter.setAllBanks(mBanks);
+        mAdapter.setFavouriteBanks(mBanks.subList(0, mBanks.size()/2));
         mBinding.recyclerView.setAdapter(mAdapter);
-        mBinding.recyclerView.setLayoutManager(new GridLayoutManager(this, mColumnCount));
+        final GridLayoutManager gridLayoutManager = new GridLayoutManager(this, mColumnCount);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                int DEFAULT_SIZE = 1;
+                Object item = mAdapter.getItem(position);
+                if (item != null) {
+                    if (item instanceof SectionItem) {
+                        return 3;
+                    } else {
+                        return DEFAULT_SIZE;
+                    }
+                } else {
+                    return DEFAULT_SIZE;
+                }
+            }
+        });
+        mBinding.recyclerView.setLayoutManager(gridLayoutManager);
         mBinding.recyclerView.addItemDecoration(
-                new SpaceItemDecoration(mColumnCount, (int) mGridSpacing, true));
+                new SectionItemDecoration(mColumnCount, (int) mGridSpacing, true));
+
         mAdapter.setItemClickListener(this);
     }
 
     @Override
     public void showBankActions(Bank bank) {
-        // TODO: 04/08/2016 start the bank action activity
+        startActivity(BankActionActivity.createLaunchIntent(this, bank));
     }
 
     @Override

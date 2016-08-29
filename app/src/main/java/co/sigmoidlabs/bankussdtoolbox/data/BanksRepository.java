@@ -5,6 +5,8 @@ import android.graphics.Color;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 import co.sigmoidlabs.bankussdtoolbox.data.model.Action;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Bank;
 import co.sigmoidlabs.bankussdtoolbox.data.model.Field;
@@ -53,5 +55,13 @@ public class BanksRepository {
         gtbBuilder.addAction(balance);
 
         return gtbBuilder.build();
+    }
+
+    public ArrayList<Bank> getTestBanks(int count) {
+        ArrayList<Bank> banks = new ArrayList<>();
+        for (int i=0; i<count; i++) {
+            banks.add(getTestBank());
+        }
+        return banks;
     }
 }
