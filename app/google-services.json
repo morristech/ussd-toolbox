@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "55379457921",
-    "firebase_url": "https://bank-ussd-toolbox.firebaseio.com",
-    "project_id": "bank-ussd-toolbox",
-    "storage_bucket": "bank-ussd-toolbox.appspot.com"
+    "project_number": "429617948964",
+    "firebase_url": "https://ussd-toolbox.firebaseio.com",
+    "project_id": "ussd-toolbox",
+    "storage_bucket": "ussd-toolbox.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:55379457921:android:35a1b6439d9f105b",
+        "mobilesdk_app_id": "1:429617948964:android:b884a97fc32bcf6e",
         "android_client_info": {
-          "package_name": "co.sigmoidlabs.bankussdtoolbox"
+          "package_name": "com.efemoney.ussdtoolbox"
         }
       },
       "oauth_client": [
         {
-          "client_id": "55379457921-s5puu092qios5h2rd9hq9g3mm45lkk6n.apps.googleusercontent.com",
+          "client_id": "429617948964-4kji2p37ridmonbjbs3670ifjnbp5rnf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "co.sigmoidlabs.bankussdtoolbox",
-            "certificate_hash": "94D945FBA355C7AE6E0E8EDE3F01591233C0CE07"
+            "package_name": "com.efemoney.ussdtoolbox",
+            "certificate_hash": "6764AAC756537F8EE34F742B104BE7843A3F6C42"
           }
         },
         {
-          "client_id": "55379457921-g8bmlec5rv8ih7j5n6kdbv4431kalkqu.apps.googleusercontent.com",
+          "client_id": "429617948964-u3nic5nbtkvqnbl16g2ti8cdovkugb4s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCx77G7yrc0jjH2YeNLXifnHOE_9IVB-uk"
+          "current_key": "AIzaSyAvwo1ewyZJvOZ1m7niTr_lnG6odhJHw-I"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "55379457921-g8bmlec5rv8ih7j5n6kdbv4431kalkqu.apps.googleusercontent.com",
+              "client_id": "429617948964-u3nic5nbtkvqnbl16g2ti8cdovkugb4s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

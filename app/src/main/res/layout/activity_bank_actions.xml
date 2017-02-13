@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="co.sigmoidlabs.bankussdtoolbox.util.ColorUtils" />
+        <import type="com.efemoney.ussdtoolbox.util.ColorUtils" />
 
         <variable
             name="bank"
-            type="co.sigmoidlabs.bankussdtoolbox.data.model.Bank" />
+            type="com.efemoney.ussdtoolbox.data.model.Bank" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
