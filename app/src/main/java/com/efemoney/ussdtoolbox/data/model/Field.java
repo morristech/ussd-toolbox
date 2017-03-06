@@ -4,8 +4,6 @@ import android.support.annotation.StringDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Efe on 04/08/2016.
@@ -13,81 +11,50 @@ import java.util.Map;
 
 public class Field {
 
-    public static final String TYPE_NUMBER = "number";
-    public static final String TYPE_BOOLEAN = "boolean";
+    public static final String TYPE_INPUT = "input";
+    public static final String TYPE_BOOLEAN = "bool";
 
-    @Retention(RetentionPolicy.SOURCE)
-    @StringDef({TYPE_NUMBER, TYPE_BOOLEAN})
-    public @interface Type {
-    }
-
-    @Type
-    String type;
-    String key;
-
-    Map<String, Object> data;
-    int priority;
-
-    // boolean overridesTemplate;
+    @Type private String type;
+    private String key;
+    private String label;
+    private Value value;
 
     public String getKey() {
         return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getType() {
         return type;
     }
 
-    public Object getData() {
-        return data;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public int getPriority() {
-        return priority;
+    public Value getValue() {
+        return value;
     }
 
-    public static class Builder {
+    public void setValue(Value value) {
+        this.value = value;
+    }
 
-        String key;
-        String type;
-        int priority;
-        Map<String, Object> data;
+    public String getLabel() {
+        return label;
+    }
 
-        public Builder(String key) {
-            this.key = key;
-        }
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-        public Builder setType(@Type String type) {
-            this.type = type;
-            return this;
-        }
+    @Retention(RetentionPolicy.SOURCE)
+    @StringDef({TYPE_INPUT, TYPE_BOOLEAN})
+    public @interface Type {
 
-        public Builder setPriority(int priority) {
-            this.priority = priority;
-            return this;
-        }
-
-        public Builder setData(Map<String, Object> data) {
-            this.data = data;
-            return this;
-        }
-
-        public Builder addData(String key, Object data) {
-            if (data == null) data = new HashMap<>();
-            this.data.put(key, data);
-            return this;
-        }
-
-        public Field build() {
-            Field f = new Field();
-
-            f.key = key;
-            f.type = type;
-            f.priority = priority;
-            f.data = data;
-
-            return f;
-        }
     }
 
     public static class Value {

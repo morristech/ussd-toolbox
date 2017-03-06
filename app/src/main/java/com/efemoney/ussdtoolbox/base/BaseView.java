@@ -1,8 +1,6 @@
 package com.efemoney.ussdtoolbox.base;
 
-public interface BaseView<T> {
+public interface BaseView<P extends BasePresenter> {
 
-    void setPresenter(T presenter);
-
-    void showUssdCode(int color, String action, String ussdCode);
+    void setPresenter(P presenter);
 }

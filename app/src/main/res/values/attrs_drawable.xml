@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="drawablesTint" format="reference|color" />
+    <attr name="drawableLeftTint" format="reference|color" />
+    <attr name="drawableTopTint" format="reference|color" />
+    <attr name="drawableRightTint" format="reference|color" />
+    <attr name="drawableBottomTint" format="reference|color" />
+
+    <declare-styleable name="DrawableHelper">
+        <attr name="drawablesTint" />
+        <attr name="drawableLeftTint" />
+        <attr name="drawableTopTint" />
+        <attr name="drawableRightTint" />
+        <attr name="drawableBottomTint" />
+    </declare-styleable>
+
+</resources>

@@ -1,8 +1,18 @@
 <resources>
-    <string name="app_name">Bank USSD Toolbox</string>
+    <string name="app_name">USSD Toolbox</string>
 
-    <string name="title_select_bank">Select your bank</string>
+    <string name="title_services">Select your service</string>
 
     <string name="copy">Copy</string>
     <string name="call">Call</string>
+
+    <string name="no_network">
+        "No internet connection. Turn on WiFi or Mobile Data and try again."
+    </string>
+
+    <string name="no_services">
+        "Uh oh, Looks like there are no available services now. You can add a USSD service here."
+    </string>
+    <string name="could_not_load_services">Could not load services.</string>
+
 </resources>

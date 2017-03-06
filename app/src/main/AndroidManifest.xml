@@ -5,29 +5,31 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.efemoney.ussdtoolbox.ui.selectbanks.SelectBanksActivity"/>
+        <activity
+            android:name=".ui.services.ServicesActivity"/>
 
         <activity
             android:theme="@style/AppTheme.FitsSystemWindows"
-            android:name="com.efemoney.ussdtoolbox.ui.bankaction.BankActionActivity"
-            android:parentActivityName="com.efemoney.ussdtoolbox.ui.selectbanks.SelectBanksActivity">
+            android:name=".ui.selectaction.ServiceActionActivity"
+            android:parentActivityName=".ui.services.ServicesActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.efemoney.ussdtoolbox.ui.selectbanks.SelectBanksActivity"/>
+                android:value=".ui.services.ServicesActivity"/>
 
         </activity>
 
         <activity-alias
             android:name=".Launcher"
             android:label="@string/app_name"
-            android:targetActivity="com.efemoney.ussdtoolbox.ui.selectbanks.SelectBanksActivity">
+            android:targetActivity=".ui.services.ServicesActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

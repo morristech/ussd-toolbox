@@ -3,8 +3,14 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
         <item name="android:windowBackground">@color/background</item>
         <item name="android:colorBackground">@color/background</item>
+
+        <item name="android:actionBarSize">@dimen/abc_action_bar_default_height_material</item>
 
     </style>
 
@@ -16,7 +22,7 @@
 
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
 
 
 
@@ -30,6 +36,24 @@
 
     <style name="TextAppearance.Toolbar.Title.Expanded" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
 
+    </style>
+
+
+
+    <style name="Widget.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="titleTextAppearance">@style/FontTextAppearance.Title</item>
+        <item name="subtitleTextAppearance">@style/FontTextAppearance.Subtitle</item>
+    </style>
+
+
+
+    <style name="FontTextAppearance.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="font">medium</item>
+    </style>
+
+    <style name="FontTextAppearance.Subtitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="font">regular</item>
     </style>
 
 </resources>

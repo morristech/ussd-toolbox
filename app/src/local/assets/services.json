@@ -1,0 +1,146 @@
+[
+  {
+    "key": "gtb",
+    "name": "GTB",
+    "color": "#E14800",
+    "actions": [
+      {
+        "key": "transfer",
+        "name": "Transfer Money",
+        "templates": [
+          {
+            "key": "toOthers",
+            "value": "*737*2*{amount}*{nuban}#"
+          },
+          {
+            "key": "toGtb",
+            "value": "*737*1*{amount}*{nuban}#"
+          }
+        ],
+        "fields": [
+          {
+            "key": "nuban",
+            "type": "input",
+            "label": "Account Number",
+            "hint": "0123456789"
+          },
+          {
+            "key": "amount",
+            "type": "input",
+            "label": "Amount to Send",
+            "hint": "2000"
+          },
+          {
+            "key": "isGtb",
+            "type": "bool",
+            "label": "Is this a GTB number?",
+            "templateYes": "toGtb",
+            "templateNo": "toOthers"
+          }
+        ]
+      },
+      {
+        "key": "airtime",
+        "name": "Recharge Airtime",
+        "templates": [
+          {
+            "key": "others",
+            "value": "*737*{amount}*{phone}#"
+          },
+          {
+            "key": "self",
+            "value": "*737*{amount}#"
+          }
+        ],
+        "fields": [
+          {
+            "key": "phone",
+            "type": "input",
+            "label": "Phone Number",
+            "hint": "08123456789"
+          },
+          {
+            "key": "amount",
+            "type": "input",
+            "label": "Amount to Send",
+            "hint": "500"
+          },
+          {
+            "key": "isSelf",
+            "type": "bool",
+            "label": "I'm recharging my number",
+            "templateYes": "self",
+            "templateNo": "others"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "firstbank",
+    "name": "First Bank",
+    "color": "#002759",
+    "accentColor":"#EDB232",
+    "actions": [
+      {
+        "key": "transfer",
+        "name": "Transfer Money",
+        "templates": [
+          {
+            "key": "default",
+            "value": "*894*{amount}*{acocunt}#"
+          }
+        ],
+        "fields": [
+          {
+            "key": "acocunt",
+            "type": "input",
+            "label": "Account Number",
+            "hint": "0123456789"
+          },
+          {
+            "key": "amount",
+            "type": "input",
+            "label": "Amount to Send",
+            "hint": "2000"
+          }
+        ]
+      },
+      {
+        "key": "airtime",
+        "name": "Airtime Recharge",
+        "templates": [
+          {
+            "key": "others",
+            "value": "*894*{amount}*{phone}#"
+          },
+          {
+            "key": "self",
+            "value": "*894*{amount}#"
+          }
+        ],
+        "fields": [
+          {
+            "key": "phone",
+            "type": "input",
+            "label": "Phone Number",
+            "hint": "0123456789"
+          },
+          {
+            "key": "amount",
+            "type": "input",
+            "label": "Amount to Send",
+            "hint": "2000"
+          },
+          {
+            "key": "isSelf",
+            "type": "bool",
+            "label": "I'm recharging my number",
+            "templateYes": "self",
+            "templateNo": "others"
+          }
+        ]
+      }
+    ]
+  }
+]

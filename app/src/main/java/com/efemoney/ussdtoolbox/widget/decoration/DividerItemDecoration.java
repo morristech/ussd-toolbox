@@ -23,7 +23,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         int dividerColor = ContextCompat.getColor(context, R.color.divider);
         divider = new ColorDrawable(dividerColor);
 
-        height = context.getResources().getDimension(R.dimen.action_divider_height);
+        height = context.getResources().getDimension(R.dimen.divider_height);
     }
 
     @Override

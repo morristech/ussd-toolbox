@@ -3,13 +3,13 @@
 buildscript {
     repositories {
         jcenter()
+        mavenCentral()
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0-beta4'
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
         classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.5.0'
     }
 }
 
@@ -30,11 +30,17 @@ ext {
     targetSdkVersion = 25
     compileSdkVersion = 25
     buildToolsVersion = '25.0.2'
+    retroLambdaVersion = '3.5.0'
+
 
     // App dependencies
-    supportLibraryVersion = '25.1.1'
-    firebaseVersion = '10.0.1'
-    glideVersion = '3.7.0'
+    supportLibraryVersion = '25.2.0'
+    googleServicesVersion = '10.2.0'
+    daggerVersion = '2.9'
+    rxJavaVersion = '2.0.6'
+    rxAndroidVersion = '2.0.1'
+    // glideVersion = '3.7.0'
+
 
     // Test dependencies
     junitVersion = '4.12'

@@ -3,7 +3,7 @@
 
     <style name="AppTheme.FitsSystemWindows">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">#4C000000</item>
+        <item name="android:statusBarColor">@color/black_30</item>
     </style>
 
     <style name="AppTheme.FitsSystemWindows.TransparentStatus">

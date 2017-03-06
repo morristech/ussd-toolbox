@@ -6,8 +6,8 @@ package com.efemoney.ussdtoolbox.data.model;
 
 public class Template {
 
-    String key;
-    String value;
+    private String key;
+    private String value;
 
     public String getKey() {
         return key;
@@ -17,27 +17,12 @@ public class Template {
         return value;
     }
 
-    public static class Builder {
+    public void setKey(String key) {
+        this.key = key;
+    }
 
-        String key;
-        String value;
-
-        public Builder (String key) {
-            this.key = key;
-        }
-
-        public Builder setValue(String value) {
-            this.value = value;
-            return this;
-        }
-
-        public Template build() {
-            Template template = new Template();
-            template.key = key;
-            template.value = value;
-
-            return template;
-        }
+    public void setValue(String value) {
+        this.value = value;
     }
 }
 
