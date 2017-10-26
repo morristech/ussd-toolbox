@@ -25,7 +25,7 @@ public interface ServiceActionsMvp {
         void showActionFields(Action action);
     }
 
-    interface Presenter extends BasePresenter<View> {
+    interface Presenter extends BasePresenter {
 
         void onActionSelected(Action action);
     }

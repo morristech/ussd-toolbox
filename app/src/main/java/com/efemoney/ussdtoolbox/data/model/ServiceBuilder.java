@@ -1,9 +1,6 @@
-package com.efemoney.ussdtoolbox.data.source;
+package com.efemoney.ussdtoolbox.data.model;
 
 import android.support.annotation.ColorInt;
-
-import com.efemoney.ussdtoolbox.data.model.Action;
-import com.efemoney.ussdtoolbox.data.model.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +13,7 @@ public class ServiceBuilder {
 
     private String key;
     private String name;
+    private String description;
     @ColorInt private int color;
     @ColorInt private int accentColor;
     private List<Action> actions;
@@ -26,6 +24,11 @@ public class ServiceBuilder {
 
     public ServiceBuilder setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public ServiceBuilder setDescription(String description) {
+        this.description = description;
         return this;
     }
 
@@ -45,7 +48,7 @@ public class ServiceBuilder {
     }
 
     public ServiceBuilder addAction(Action action) {
-        if (actions == null) actions = new ArrayList<>(4);
+        if (actions == null) actions = new ArrayList<>(2);
         this.actions.add(action);
         return this;
     }

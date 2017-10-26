@@ -7,67 +7,58 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
         android:orientation="vertical"
         tools:context=".selectbanks.SelectBanksActivity">
 
-        <include android:id="@+id/appbar" layout="@layout/appbar" />
-
-        <FrameLayout
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        <android.support.design.widget.AppBarLayout
+            android:orientation="vertical"
+            android:stateListAnimator="@animator/asl_always_elevated"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/grid"
-                app:layoutManager="android.support.v7.widget.GridLayoutManager"
-                app:spanCount="@integer/grid_span_count"
-                tools:listitem="@layout/item_service"
-                tools:visibility="visible"
-                android:visibility="visible"
+            <android.support.v7.widget.CardView
+                android:id="@+id/card"
+                app:cardCornerRadius="2dp"
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <ProgressBar
-                android:id="@+id/progress"
-                android:visibility="gone"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:id="@+id/error_view"
-                android:visibility="gone"
-                tools:visibility="gone"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/image"
-                    tools:src="@drawable/ic_no_network"
-                    android:tint="@color/black_30"
-                    android:tintMode="src_in"
-                    android:adjustViewBounds="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    style="@style/Widget.Toolbar"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    android:theme="@style/AppTheme.ActionBarOverlay"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:contentInsetEnd="0dp"
+                    app:contentInsetEndWithActions="0dp"
+                    android:minHeight="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
 
-                <android.support.v4.widget.Space
-                    android:layout_width="12dp"
-                    android:layout_height="4dp" />
+                    <android.support.v7.widget.SearchView
+                        android:id="@+id/search"
+                        app:iconifiedByDefault="false"
+                        app:searchIcon="@null"
+                        app:searchHintIcon="@null"
+                        app:queryHint="Search services"
+                        app:defaultQueryHint="Search services"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-                <com.efemoney.ussdtoolbox.widget.FontTextView
-                    android:id="@+id/text"
-                    tools:text="You have to lure, and remember vision by your sitting."
-                    android:textSize="16dp"
-                    android:textColor="@color/black_54"
-                    android:maxWidth="224dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                </android.support.v7.widget.Toolbar>
 
-            </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-        </FrameLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/container"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </android.support.design.widget.CoordinatorLayout>
 

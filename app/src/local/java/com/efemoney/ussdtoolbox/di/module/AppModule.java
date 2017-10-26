@@ -2,10 +2,10 @@ package com.efemoney.ussdtoolbox.di.module;
 
 import android.content.Context;
 
-import com.efemoney.ussdtoolbox.data.ServiceMetaData;
+import com.efemoney.ussdtoolbox.data.source.ServiceMetaData;
 import com.efemoney.ussdtoolbox.data.source.AssetJsonServicesRepository;
 import com.efemoney.ussdtoolbox.data.source.ServicesRepository;
-import com.efemoney.ussdtoolbox.data.source.SharedPrefsServiceMetaData;
+import com.efemoney.ussdtoolbox.data.SharedPrefsServiceMetaData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

@@ -15,28 +15,18 @@ public class ServiceActionsPresenter implements ServiceActionsMvp.Presenter {
     private final String serviceKey;
     private final ServicesRepository repository;
 
-    private ServiceActionsMvp.View serviceActionsView;
+    private final ServiceActionsMvp.View view;
 
-    public ServiceActionsPresenter(String serviceKey, ServicesRepository repository) {
+    public ServiceActionsPresenter(String serviceKey, ServiceActionsMvp.View view, ServicesRepository repository) {
         this.serviceKey = serviceKey;
+        this.view = view;
         this.repository = repository;
-    }
-
-    @Override
-    public void bindView(ServiceActionsMvp.View view) {
-        serviceActionsView = view;
-        serviceActionsView.setPresenter(this);
-    }
-
-    @Override
-    public void unbindView() {
-        serviceActionsView.setPresenter(null);
-        serviceActionsView = null;
     }
 
     @Override
     public void subscribe() {
 
+        repository.getActionsForService(serviceKey);
     }
 
     @Override
@@ -51,13 +41,13 @@ public class ServiceActionsPresenter implements ServiceActionsMvp.Presenter {
 
         if (shouldShowActionDetails(action)) {
 
-            serviceActionsView.showActionFields(action);
+            view.showActionFields(action);
         }
 
         if (action.getFields() == null || action.getFields().size() == 0) {
 
             String ussd = UssdCodeGenerator.generate(action.getTemplates().get(0));
-            // serviceActionsView.showUssdCode(service.getColor(), action.getName(), ussd);
+            // view.showUssdCode(service.getColor(), action.getName(), ussd);
 
         } else {
 

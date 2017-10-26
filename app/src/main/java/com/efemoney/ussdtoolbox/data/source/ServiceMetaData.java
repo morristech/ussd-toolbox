@@ -1,4 +1,4 @@
-package com.efemoney.ussdtoolbox.data;
+package com.efemoney.ussdtoolbox.data.source;
 
 /**
  * Created by Efe on 01/03/2017.

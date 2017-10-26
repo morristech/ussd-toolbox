@@ -2,6 +2,8 @@
   {
     "key": "gtb",
     "name": "GTB",
+    "iconUrl": "",
+    "description":"Generate and save USSD code for GTBank’s *737# ",
     "color": "#E14800",
     "actions": [
       {
@@ -79,6 +81,7 @@
   {
     "key": "firstbank",
     "name": "First Bank",
+    "description":"Generate and save USSD code for GTBank’s *737# ",
     "color": "#002759",
     "accentColor":"#EDB232",
     "actions": [

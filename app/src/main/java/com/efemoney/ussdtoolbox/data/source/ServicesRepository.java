@@ -13,6 +13,8 @@ import io.reactivex.Observable;
 
 public interface ServicesRepository {
 
+    boolean isFromCache();
+
     void favoriteService(String key);
 
     void clickService(String key);

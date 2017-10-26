@@ -10,6 +10,8 @@
         <item name="android:windowBackground">@color/background</item>
         <item name="android:colorBackground">@color/background</item>
 
+        <item name="android:fontFamily">@font/regular</item>
+
         <item name="android:actionBarSize">@dimen/abc_action_bar_default_height_material</item>
 
     </style>
@@ -23,6 +25,10 @@
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
+
+    <style name="AppTheme.ActionBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/black_54</item>
+    </style>
 
 
 
@@ -49,11 +55,11 @@
 
 
     <style name="FontTextAppearance.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="font">medium</item>
+        <item name="android:fontFamily">@font/medium</item>
     </style>
 
     <style name="FontTextAppearance.Subtitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
-        <item name="font">regular</item>
+        <item name="android:fontFamily">@font/regular</item>
     </style>
 
 </resources>

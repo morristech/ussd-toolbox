@@ -14,82 +14,94 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class ServicesPresenter implements ServicesMvp.Presenter {
 
-    private final ServicesRepository servicesRepository;
+    private final ServicesRepository repository;
+    private final ServicesMvp.View view;
 
     private Disposable disposable;
-    private ServicesMvp.View servicesView;
 
-    public ServicesPresenter(ServicesRepository servicesRepository) {
+    public ServicesPresenter(ServicesRepository repository, ServicesMvp.View view) {
+        this.repository = repository;
+        this.view = view;
 
-        this.servicesRepository = servicesRepository;
+        this.view.setPresenter(this);
     }
 
-    @Override
-    public void bindView(ServicesMvp.View view) {
-        servicesView = view;
-        servicesView.setPresenter(this);
-    }
-
-    @Override
-    public void unbindView() {
-        servicesView.setPresenter(null);
-        servicesView = null;
-    }
 
     @Override
     public void subscribe() {
 
-        loadServices(false);
-    }
-
-    private void loadServices(boolean showLoading) {
-
-        if (disposable != null && !disposable.isDisposed()) disposable.dispose();
-
-        disposable = servicesRepository.getServices()
-
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-
-                .doOnSubscribe(d -> {
-                    if (showLoading) servicesView.setLoadingIndicator(true);
-                })
-                .doFinally(() -> {
-                    if (showLoading) servicesView.setLoadingIndicator(false);
-                })
-
-                .subscribe(
-                        this::servicesLoaded, // onNext
-                        throwable -> servicesView.showLoadingServicesError() // onError
-                )
-        ;
+        load();
     }
 
     @Override
     public void unsubscribe() {
 
-        disposable.dispose();
+        disposeIfNecessary();
     }
 
     @Override
     public void onServiceClick(Service service) {
-        servicesRepository.clickService(service.getKey());
-        loadServices(false);
+        repository.clickService(service.getKey());
+        load(); // Refresh services
+
+        view.showActionsScreen(service.getKey());
     }
 
     @Override
     public void onServiceFaveClicked(Service service) {
-        servicesRepository.favoriteService(service.getKey());
-        loadServices(false);
+        repository.favoriteService(service.getKey());
+        load(); // Refresh services
     }
 
+    @Override
+    public void onActionUpdate() {
+
+    }
+
+    @Override
+    public void onActionClearFrequents() {
+
+    }
+
+
+    private void load() {
+
+        loadServices(!repository.isFromCache());
+    }
+
+    private void disposeIfNecessary() {
+
+        if (disposable != null && !disposable.isDisposed()) disposable.dispose();
+    }
+
+    private void loadServices(boolean showLoading) {
+
+        disposeIfNecessary();
+
+        disposable = repository.getServices()
+                .doOnSubscribe(d -> {
+                    if (showLoading) view.setLoadingIndicator(true);
+                })
+
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+
+                .doFinally(() -> {
+                    if (showLoading) view.setLoadingIndicator(false);
+                })
+                .subscribe(
+                        this::servicesLoaded, // onNext
+                        t -> view.showLoadingServicesError() // onError
+                )
+        ;
+    }
 
     private void servicesLoaded(List<Service> services) {
 
         if (services.isEmpty()) {
-            servicesView.showNoServices();
+            view.showNoServices();
         } else {
-            servicesView.showServices(services);
+            view.showServices(services);
         }
     }
 }

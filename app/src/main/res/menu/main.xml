@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Donate menu is showed to loyal customers only-->
+    <!-- item
+        android:id="@+id/action_donate"
+        android:title="Donate (Edakun)"
+        android:titleCondensed="Donate"
+        android:visible="false"
+        android:orderInCategory="98"
+        app:showAsAction="never"
+        tools:visible="true" / -->
+
+    <item
+        android:id="@+id/action_about"
+        android:title="About"
+        android:orderInCategory="98"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="Settings"
+        android:orderInCategory="99"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_debug_dialog"
+        android:title="Show debug dialog"
+        android:visible="@bool/show_debug_dialog"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+</menu>

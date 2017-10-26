@@ -10,11 +10,11 @@ import java.util.List;
 /**
  * Created by Efe on 27/02/2017.
  */
-
 public interface ServiceParser<T> {
 
     String KEY = "key";
     String NAME = "name";
+    String DESCRIPTION = "description";
     String TYPE = "type";
     String HINT = "hint";
     String COLOR = "color";
@@ -23,8 +23,8 @@ public interface ServiceParser<T> {
     String FIELDS = "fields";
     String ACTIONS = "actions";
     String TEMPLATES = "templates";
-    String TEMPLATE_YES = "templateYes";
     String TEMPLATE_NO = "templateNo";
+    String TEMPLATE_YES = "templateYes";
     String ACCENT_COLOR = "accentColor";
 
     List<Service> parseServices(T object);

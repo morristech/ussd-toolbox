@@ -5,11 +5,11 @@
     
     <android.support.design.widget.AppBarLayout
         android:orientation="vertical"
-        android:stateListAnimator="@animator/appbar_always_elevated"
+        android:stateListAnimator="@animator/asl_always_elevated"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.efemoney.ussdtoolbox.widget.Toolbar
+        <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/Widget.Toolbar"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"

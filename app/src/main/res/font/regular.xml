@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedAttribute" >
+
+    <font
+        app:font="@font/cabin_regular" android:font="@font/cabin_regular"
+        app:fontStyle="normal" android:fontStyle="normal"
+        app:fontWeight="400" android:fontWeight="400" />
+
+    <font
+        app:font="@font/cabin_italic" android:font="@font/cabin_italic"
+        app:fontStyle="italic" android:fontStyle="italic"
+        app:fontWeight="400" android:fontWeight="400" />
+
+    <font
+        app:font="@font/cabin_bold" android:font="@font/cabin_bold"
+        app:fontStyle="normal" android:fontStyle="normal"
+        app:fontWeight="700" android:fontWeight="700" />
+
+    <font
+        app:font="@font/cabin_bolditalic" android:font="@font/cabin_bolditalic"
+        app:fontStyle="italic" android:fontStyle="italic"
+        app:fontWeight="700" android:fontWeight="700" />
+
+</font-family>

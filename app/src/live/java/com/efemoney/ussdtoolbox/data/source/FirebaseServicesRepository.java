@@ -77,9 +77,10 @@ public class FirebaseServicesRepository implements ServicesRepository {
     @Override
     public Observable<List<Service>> getServices() {
 
-        Observable<List<Service>> obsv = Observable.create(e -> {
+        Observable<List<Service>> servicesObsvb = Observable.create(e -> {
 
             DatabaseReference ref = db.getReference(SERVICES_NODE);
+            ref.keepSynced(true); // Keep the services data even when app stopped/restarted
 
             final ValueEventListener listener = new ValueEventListener() {
 
@@ -110,18 +111,20 @@ public class FirebaseServicesRepository implements ServicesRepository {
 
         });
 
-        return obsv.flatMap(services -> Observable.fromIterable(services) // Break down data
-                .sorted(comparator) // Sort it
-                .map(service -> {
+        return servicesObsvb.flatMap(
+                services -> Observable.fromIterable(services) // Break down data
+                        .sorted(comparator) // Sort it
+                        .map(service -> {
 
-                    // Update fave status
-                    boolean fave = serviceMetaData.getFavorite(service.getKey());
-                    service.setFavorite(fave);
+                            // Update fave status
+                            boolean fave = serviceMetaData.getFavorite(service.getKey());
+                            service.setFavorite(fave);
 
-                    return service;
-                })
-                .toList() // recombine as list
-                .toObservable()); // to observable
+                            return service;
+                        })
+                        .toList() // recombine as list
+                        .toObservable()  // to observable
+        );
     }
 
     @Override

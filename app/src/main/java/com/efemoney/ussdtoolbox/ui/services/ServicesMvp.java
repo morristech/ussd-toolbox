@@ -28,14 +28,16 @@ public interface ServicesMvp {
         void showServices(List<Service> services);
 
         void showActionsScreen(String serviceKey);
-
-        void updateFave(String key);
     }
 
-    interface Presenter extends BasePresenter<View> {
+    interface Presenter extends BasePresenter {
 
         void onServiceClick(Service service);
 
         void onServiceFaveClicked(Service service);
+
+        void onActionUpdate();
+
+        void onActionClearFrequents();
     }
 }

@@ -19,16 +19,20 @@ public class BaseActivity extends AppCompatActivity {
         setToolbar(toolbar, toolbar.getTitle(), toolbar.getSubtitle(), displayHomeAsUpEnabled);
     }
 
-    protected void setToolbar(Toolbar toolbar, @StringRes int titleRes, @StringRes int subtitleRes,
+    protected void setToolbar(Toolbar toolbar,
+                              @StringRes int titleRes,
+                              @StringRes int subtitleRes,
                               boolean displayHomeAsUpEnabled) {
 
-        CharSequence title = titleRes == 0 ? null : getString(titleRes);
-        CharSequence subtitle = subtitleRes == 0 ? null : getString(subtitleRes);
+        String title = titleRes == 0 ? null : getString(titleRes);
+        String subtitle = subtitleRes == 0 ? null : getString(subtitleRes);
 
         setToolbar(toolbar, title, subtitle, displayHomeAsUpEnabled);
     }
 
-    protected void setToolbar(Toolbar toolbar, CharSequence title, CharSequence subtitle,
+    protected void setToolbar(Toolbar toolbar,
+                              CharSequence title,
+                              CharSequence subtitle,
                               boolean displayHomeAsUpEnabled) {
 
         setSupportActionBar(toolbar);

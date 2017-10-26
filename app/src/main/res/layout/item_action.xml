@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="action"
-            type="com.efemoney.ussdtoolbox.data.model.Action" />
+        <import alias="Drawables" type="com.efemoney.ussdtoolbox.util.DrawableUtils" />
+        <variable name="action" type="com.efemoney.ussdtoolbox.data.model.Action" />
+        <variable name="accentColor" type="int" />
     </data>
 
     <TextView
         android:background="?attr/selectableItemBackground"
-        android:drawableLeft="@drawable/ic_circle"
+
+        tools:text="Transfer Money"
+        android:text="@{ action.name }"
+
+        tools:drawableLeft="@drawable/ic_circle"
+        tools:drawableRight="@drawable/ic_chevron"
+        android:drawableLeft="@{ Drawables.tintDrawable( @drawable/ic_circle, accentColor) }"
+        android:drawableRight="@{ !action.fields.empty ? @drawable/ic_chevron : null }"
         android:drawablePadding="28dp"
 
-        android:text="@{ action.name }"
-        tools:text="Transfer Money"
-
-        android:drawableRight="@{ action.fields != null ? @drawable/ic_chevron : null }"
-
-        android:textSize="16sp"
-        android:textAllCaps="true"
+        android:gravity="center_vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:gravity="center_vertical"
+        android:textAllCaps="true"
+        android:textSize="16sp"
         android:layout_width="match_parent"
-        android:layout_height="72dp" />
+        android:layout_height="72dp"/>
 
 </layout>

@@ -1,0 +1,17 @@
+<!--suppress RequiredAttributes, AndroidDomInspection -->
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:drawable="@drawable/ic_search_back_24"
+    tools:targetApi="lollipop">
+
+    <target
+        android:name="group"
+        android:animation="@animator/rotate_to_minus_45" />
+
+    <target
+        android:name="path"
+        android:animation="@animator/search_to_back" />
+
+</animated-vector>

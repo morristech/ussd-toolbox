@@ -1,9 +1,9 @@
-package com.efemoney.ussdtoolbox.data.source;
+package com.efemoney.ussdtoolbox.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.efemoney.ussdtoolbox.data.ServiceMetaData;
+import com.efemoney.ussdtoolbox.data.source.ServiceMetaData;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -17,6 +17,7 @@ public class SharedPrefsServiceMetaData implements ServiceMetaData {
 
     private static final String CLICKS = "com.efemoney.ussdtoolbox.clicks";
     private static final String FAVES = "com.efemoney.ussdtoolbox.favorites";
+
     private final SharedPreferences favePrefs;
     private final SharedPreferences clicksPrefs;
 
@@ -34,7 +35,8 @@ public class SharedPrefsServiceMetaData implements ServiceMetaData {
     @Override
     public void toggleFavorite(String serviceKey) {
 
-        boolean current = favePrefs.getBoolean(serviceKey, false);
+        boolean current = getFavorite(serviceKey);
+
         favePrefs.edit().putBoolean(serviceKey, !current).apply();
     }
 
@@ -47,7 +49,8 @@ public class SharedPrefsServiceMetaData implements ServiceMetaData {
     @Override
     public void incrementClick(String serviceKey) {
 
-        int current = clicksPrefs.getInt(serviceKey, 0);
-        clicksPrefs.edit().putInt(serviceKey, current + 1).apply();
+        int clicks = getClicks(serviceKey);
+
+        clicksPrefs.edit().putInt(serviceKey, clicks + 1).apply();
     }
 }

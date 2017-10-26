@@ -1,10 +1,6 @@
-package com.efemoney.ussdtoolbox.data.source;
+package com.efemoney.ussdtoolbox.data.model;
 
 import android.support.annotation.NonNull;
-
-import com.efemoney.ussdtoolbox.data.model.Action;
-import com.efemoney.ussdtoolbox.data.model.Field;
-import com.efemoney.ussdtoolbox.data.model.Template;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,4 @@
-package com.efemoney.ussdtoolbox.data.source;
-
-import com.efemoney.ussdtoolbox.data.model.Template;
+package com.efemoney.ussdtoolbox.data.model;
 
 /**
  * Created by Efe on 01/03/2017.

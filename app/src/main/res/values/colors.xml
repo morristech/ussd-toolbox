@@ -15,6 +15,7 @@
     <color name="colorPrimary">#3F5765</color>
     <color name="colorPrimaryDark">#2C3C46</color>
     <color name="colorTextPrimary">@color/black_87</color>
+    <color name="colorTextSecondary">@color/black_54</color>
     <color name="colorBackground">@color/background</color>
 
 </resources>

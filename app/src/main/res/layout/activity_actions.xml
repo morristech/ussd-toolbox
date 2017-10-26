@@ -12,25 +12,26 @@
 
         <android.support.design.widget.AppBarLayout
             android:fitsSystemWindows="true"
-            android:stateListAnimator="@animator/appbar_always_elevated"
+            android:stateListAnimator="@animator/asl_always_elevated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:targetApi="lollipop">
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapser"
-                android:fitsSystemWindows="true"
-                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-                app:titleEnabled="true"
+                app:titleEnabled="false"
                 app:collapsedTitleTextAppearance="@style/TextAppearance.Toolbar.Title"
                 app:expandedTitleTextAppearance="@style/TextAppearance.Toolbar.Title.Expanded"
                 app:expandedTitleMarginStart="72dp"
                 app:expandedTitleMarginEnd="56dp"
                 app:expandedTitleMarginBottom="32dp"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                android:fitsSystemWindows="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <View
+                <!-- Adding a view to give the collapsing toolbar default height of 168dp -->
+                <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="168dp" />
 
