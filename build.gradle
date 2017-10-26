@@ -1,47 +1,57 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+
+    ext.versions = [
+            'agp'             : '3.0.0',
+            'jUnit'           : '4.12',
+            'fabric'          : '1.24.4',
+            'kotlin'          : '1.2.0-beta-88',
+            'dexCount'        : '0.8.1',
+            'espresso'        : '2.2.2',
+
+            'playServices'    : '11.4.2',
+            'archComponents'  : '1.0.0-rc1',
+            'supportLibrary'  : '26.1.0',
+            'constraintLayout': '1.0.2',
+
+            'gson'            : '2.8.2',
+            'glide'           : '4.2.0',
+            'dagger'          : '2.12',
+            'okHttp'          : '3.9.0',
+            'rxJava'          : '2.1.5',
+            'retrofit'        : '2.3.0',
+            'rxAndroid'       : '2.0.1',
+            'threeTenAbp'     : '1.0.5',
+    ]
+
     repositories {
+        google()
         jcenter()
-        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.2/' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
-        classpath 'com.google.gms:google-services:3.0.0'
-        classpath 'me.tatarka:gradle-retrolambda:3.5.0'
+        classpath "com.android.tools.build:gradle:$versions.agp"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        classpath "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$versions.dexCount"
+
+        classpath "io.fabric.tools:gradle:$versions.fabric"
+
+        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap-1.2/' }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-ext {
-
-    // SDK and tools
-    minSdkVersion = 16
-    targetSdkVersion = 25
-    compileSdkVersion = 25
-    buildToolsVersion = '25.0.2'
-    retroLambdaVersion = '3.5.0'
-
-
-    // App dependencies
-    supportLibraryVersion = '25.2.0'
-    googleServicesVersion = '10.2.0'
-    daggerVersion = '2.9'
-    rxJavaVersion = '2.0.6'
-    rxAndroidVersion = '2.0.1'
-    // glideVersion = '3.7.0'
-
-
-    // Test dependencies
-    junitVersion = '4.12'
 }

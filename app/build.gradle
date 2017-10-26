@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
 
-    compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
+    compileSdkVersion 26
 
     defaultConfig {
         applicationId "com.efemoney.ussdtoolbox"
 
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
+        minSdkVersion 19
+        targetSdkVersion 26
 
         versionCode 1
         versionName "1.0"
@@ -29,19 +29,22 @@ android {
     }
 
     compileOptions {
-
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    flavorDimensions 'data-source'
+
     productFlavors {
 
         local {
-
+            dimension 'data-source'
+            resValue 'bool', 'show_debug_dialog', 'true'
         }
 
         live {
-
+            dimension 'data-source'
+            resValue 'bool', 'show_debug_dialog', 'false'
         }
     }
 
@@ -55,26 +58,29 @@ android {
 
 dependencies {
 
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    kapt "com.android.databinding:compiler:$versions.agp"
 
-    compile "com.google.firebase:firebase-crash:$rootProject.googleServicesVersion"
-    compile "com.google.firebase:firebase-database:$rootProject.googleServicesVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
 
-    // compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation "com.android.support:design:$versions.supportLibrary"
+    implementation "com.android.support:cardview-v7:$versions.supportLibrary"
+    implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
 
-    localCompile 'com.google.code.gson:gson:2.8.0'
+    implementation "com.google.firebase:firebase-crash:$versions.playServices"
 
-    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
-    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+    liveImplementation "com.google.firebase:firebase-database:$versions.playServices"
+    localImplementation "com.google.code.gson:gson:$versions.gson"
 
-    compile "com.google.dagger:dagger:$rootProject.daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
-    provided 'javax.annotation:jsr250-api:1.0'
+    implementation "io.reactivex.rxjava2:rxjava:$versions.rxJava"
+    implementation "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid"
+
+    implementation "com.google.dagger:dagger:$versions.dagger"
+    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
 
     // Dependencies for local unit tests
-    testCompile "junit:junit:$rootProject.junitVersion"
+    testImplementation "junit:junit:$versions.jUnit"
 }
 
 apply plugin: 'com.google.gms.google-services'
-apply plugin: 'me.tatarka.retrolambda'
+
